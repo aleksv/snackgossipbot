@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Extra logging related to initialization of Log4j. Set to debug or trace 
+	if log4j initialization is failing. -->
+<Configuration status="debug">
+	<Appenders>
+		<!-- Console appender configuration -->
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<File name="file" fileName="snacklog.log">
+			<PatternLayout
+				pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</File>
+	</Appenders>
+	<Loggers>
+		<!-- Root logger referring to console appender -->
+		<Root level="info" additivity="false">
+			<AppenderRef ref="console" />
+			<appender-ref ref="file" level="debug" />
+		</Root>
+	</Loggers>
+</Configuration>
